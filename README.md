@@ -94,10 +94,31 @@ pass:    Solomon22_1
 ![](./img/g1.jpg)
 ![](./img/g3.jpg)
 
-Для отображения инфомрации я выбрал уже существующий дашборд т.к. счёл его более информативным и мне было лень искать нужные конфиги самому.
+Для отображения инфомрации создаём ряд метрик из node_exporter и из Node Exporter и Nginx Log Exporter.
+Конфигурация последнего была изменена т.к. сразу после установки он неправильно парсил логи.
+Конфигурация Nginx Log Exporter.
 
-![](./img/g5.jpg)
-![](./img/g6.jpg)
+```nginx
+listen {
+  port = 4040
+}
+
+namespace "nginx" {
+  source = {
+    files = [
+      "/var/log/nginx/access.log"
+    ]
+  }
+
+   format = "$remote_addr - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\""
+  labels {
+    app = "default"
+  }
+}
+```
+
+![](img/m_final.png)
+
 
 
 ### Логи

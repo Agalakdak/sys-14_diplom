@@ -135,9 +135,11 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 http://51.250.6.17:5601/app/infra#/logs/stream?_g=()&flyoutOptions=(flyoutId:!n,flyoutVisibility:hidden,surroundingLogsId:!n)&logPosition=(position:(tiebreaker:0,time:1685217539807),streamLive:!f)
 
 kibana.yml
+
 ![](./img/e1.jpg)
 
 filebeat.yml
+
 ![](./img/e2.jpg)
 
 
